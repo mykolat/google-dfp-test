@@ -1,0 +1,9 @@
+.idea/
+Google-dfp.iml
+
+target/
+src/main/java/
+src/main/resources/literally-0ced7de5e735.json
+src/main/resources/log4j.properties
+src/main/resources/log4j.tofiles.properties
+src/test/
