@@ -18,7 +18,7 @@ public class ImportCsv {
 
     public static void main(String[] args) throws IOException {
         try (
-                Reader reader = Files.newBufferedReader(Paths.get("/tmp/custom-field-report-2553974832560449998.csv"));
+                Reader reader = Files.newBufferedReader(Paths.get("/tmp/custom-field-report-3904046905745273187.csv"));
                 Connection connection = DBConnection.getConnection();
         ) {
             CsvToBean<CSVAdvertiser> csvToBean = new CsvToBeanBuilder(reader)

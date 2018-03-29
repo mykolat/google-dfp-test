@@ -86,12 +86,12 @@ public class DfpRun {
 
         try {
             ArrayList<Long> queryArray = new ArrayList<>();
-            //queryArray.add(10092788058L);//advertisers
-            //queryArray.add(10092788996L);//Overall_Traffic
-            queryArray.add(10092792271L);//Adx_Buyers
-            queryArray.add(10092793203L);//Adx_Pricing_Rules
-            queryArray.add(10092794981L);//AdX_Bid_requests
-            queryArray.add(10092791080L);//Ad_Exchange_Ad_Units
+            queryArray.add(10092788058L);//advertisers
+            queryArray.add(10092788996L);//Overall_Traffic
+            //queryArray.add(10092792271L);//Adx_Buyers
+            //queryArray.add(10092793203L);//Adx_Pricing_Rules
+            //queryArray.add(10092794981L);//AdX_Bid_requests
+            //queryArray.add(10092791080L);//Ad_Exchange_Ad_Units
 
             for(long queryId: queryArray){
                 runQuery(dfpServices, session, queryId);
@@ -163,8 +163,11 @@ public class DfpRun {
         if (!savedQuery.getIsCompatibleWithApiVersion()) {
             throw new IllegalStateException("The saved query is not compatible with this API version.");
         }
-
         ReportQuery reportQuery = savedQuery.getReportQuery();
+
+        // Create report job.
+        ReportJob reportJob = new ReportJob();
+        reportJob.setReportQuery(reportQuery);
         // Run report job.
         reportJob = reportService.runReportJob(reportJob);
 
